@@ -1,0 +1,314 @@
+@import url(//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Philosopher:700,700italic|PT+Mono&subset=latin,cyrillic);
+@import (inline) url(./reset.css);
+@import url(./font/fontello.less);
+
+@color: #008000;
+@color-rich: #f63;
+@color-poor: #777;
+@color-bg: #fff;
+@color-bg-poor: #eee;
+
+html {
+    height: 100%;
+}
+body {
+    position: relative;
+    min-width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    font: 1em/1.4 "PT Sans", sans-serif;
+    font-weight: 400;
+}
+a {
+    color: @color;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+a:hover, a:focus, a:active {
+    color: @color-rich;
+    border-bottom-color: @color-rich;
+}
+h1, h2, h3, h4, h5, h6 {
+    font: 1.1em "Philosopher", sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.3em;
+}
+h1 {
+    font-size: 1.3em;
+}
+h2 {
+    font-size: 1.2em;
+}
+.button() {
+    color: @color-poor * 0.7;
+    border: 1px solid @color-poor * 1.2;
+    border-radius: 3px;
+    background-color: @color-bg-poor;
+    vertical-align: middle;
+    &:hover {
+        cursor: pointer;
+        color: #333;
+        background-color: @color-bg-poor * 1.2;
+    }
+    &[disabled] {
+        color: @color-poor;
+        &:hover {
+            color: @color-poor;
+            background-color: @color-bg-poor;
+        }
+    }
+}
+button {
+    .button;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 3px 5px;
+}
+select {
+    .button;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+}
+@keyframes spin  {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+.loader {
+    .icon-spin;
+    display: inline-block;
+    &:before {
+        animation: spin 1s infinite linear;
+    }
+}
+.panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    outline: 1px solid @color-bg-poor;
+}
+.panel-side {
+    left: 50%;
+}
+.panel-head {
+    position: relative;
+    margin: 0 10px;
+    padding: 2px 0;
+    height: 24px;
+    line-height: 24px;
+    white-space: nowrap;
+
+    button {
+        display: none;
+    }
+    .refresh {
+        .icon-spin;
+    }
+}
+.panel-body {
+    position: absolute;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    overflow-y: auto;
+}
+.labels {
+    font-size: 14px;
+}
+.email-labels {
+    a {
+        display: inline-block;
+        vertical-align: middle;
+        color: @color-poor;
+        border: 1px solid @color-poor * 1.5;
+        padding: 0 2px;
+        height: 14px;
+        line-height: 14px;
+        font-size: 12px;
+    }
+    a:hover {
+        color: @color-rich;
+        border: 1px solid @color-rich;
+    }
+}
+.email-line-mixin(@bg) {
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 0.9em;
+    line-height: 1.2em;
+    padding: 3px 5px;
+    background-color: @bg;
+
+    &> li {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .email-star {
+        .icon-star-empty;
+        color: @color-poor;
+        font-size: 120%;
+        &:hover {
+            margin-top: 1px;
+            cursor: pointer;
+            margin-bottom: -1px;
+        }
+        &.email-starred {
+            color: @color-rich;
+        }
+    }
+    .email-pics {
+        line-height: 1em;
+    }
+    .email-subject {
+        width: 100%;
+    }
+    .email-date {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 1.2em;
+        text-align: right;
+        padding: 3px 5px;
+        background-color: @bg;
+    }
+    .email-info {
+        cursor: pointer;
+    }
+}
+.email-line {
+    .email-line-mixin(@color-bg-poor);
+    border-top: 1px solid @color-bg;
+    border-radius: 7px;
+
+    .email-from {
+        width: 90px;
+        padding: 0 5px;
+        overflow: hidden;
+    }
+    .email-subject {
+        color: @color-poor;
+
+        b {
+            color: @color;
+        }
+    }
+    .email-count {
+        padding: 0 2px;
+        color: @color-poor;
+        background-color: @color-bg;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
+.email-head {
+    .email-line-mixin(#fff);
+    border-top: 2px solid @color-bg-poor * 0.95;
+    border-radius: 7px;
+    color: @color-poor;
+
+    .email-from {
+        font-weight: bold;
+        width: auto;
+        margin-right: 1em;
+    }
+    .email-date {
+        font-weight: bold;
+    }
+}
+.email-body {
+    padding: 10px;
+
+    blockquote {
+        padding-left: 10px;
+        border-left: 1px solid #ccc;
+        color: @color-poor;
+    }
+    p, dl, hr, ol, ul, pre, blockquote,
+    table, address, fieldset {
+        margin-bottom: 1em;
+    }
+    pre {
+        white-space: pre-wrap;
+    }
+    .email-quote {
+        display: none;
+    }
+    .email-quote-switch {
+        .icon-dot-3;
+        .button;
+        display: inline-block;
+        line-height: 0.8;
+        padding: 0 5px;
+        margin: 5px 0;
+    }
+    .email-attachments {
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid @color-bg-poor;
+        ul {
+            list-style: decimal;
+            margin-left: 2em;
+        }
+    }
+}
+.email-unread .email-line .email-subject {
+    font-weight: bold;
+}
+.thread {
+    .email-group, .email-head, .email-body, .email-pick {
+        display: none;
+    }
+    .email-line {
+        .email-subject b {
+            display: none;
+        }
+    }
+    .email-showed {
+        .email-head, .email-body {
+            display: block;
+        }
+        .email-line {
+            display: none;
+        }
+    }
+    .email-group-show {
+        color: @color;
+        border-top: 1px solid @color-bg;
+        border-radius: 7px;
+        background-color: @color-bg-poor;
+        padding: 10px;
+        cursor: pointer;
+        text-align: center;
+    }
+}
+/*TODO*/
+.compose-form {
+    .compose-subject, .compose-to, .compose-from {
+        position: relative;
+        height: 25px;
+
+        input {
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            border: none;
+            border-bottom: 1px solid @color-poor;
+        }
+    }
+    textarea {
+        position: absolute;
+        top: 75px;
+        bottom: 0;
+        left: 10px;
+        right: 10px;
+        border: 1px solid @color-poor;
+    }
+}

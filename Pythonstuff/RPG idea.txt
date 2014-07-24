@@ -1,0 +1,95 @@
+Ideas for dungeon crawler rpg python
+
+races
+	Human
+	High Elf
+	Low Elf
+	Orc
+	Dwarf
+	Halfling
+Classes
+	Mage
+	Rogue
+	Thief
+	Warrior
+	Battlemage
+	Spellsword
+	Ranger
+	Monk
+Skills
+	Attack
+	Defense
+	Agility
+	Magic
+	Weaponry
+Stats
+	Health
+	Mana
+	Stamina
+Enemies
+	Undead
+		Bonewalkers
+		Zombies
+		Vampires
+		Ghosts
+		Ghouls
+		Necromancers
+		Litches
+	Mages: Types= Fire, Elemental, Conjurer
+		Novice
+		Apprentice
+		Adept
+		Expert
+		Master
+		Exceptional
+		Legendary
+	Monsters
+		Imp
+		Goblin
+		Troll
+		Cockatrice
+		Giant
+		Banshee
+		Dragon
+	Bosses
+		Doppelganger
+		Giant
+		Grey
+		Minotaur
+		Golem
+		Grimmer
+		Unicorn
+Weapons
+	Swords
+	Daggers
+	Bows
+	Spears
+	Spells
+Armour
+	Leather
+		Cap
+		breeches
+		Jacket
+		Gloves
+		Boots
+	Chain 
+		Helmet
+		Chausses
+		Coat
+		Gauntlets
+		Boots
+	Iron
+		Helmet
+		Chausses
+		Coat
+		Gauntlets
+		Boots
+	Steel
+		Helmet
+		Chausses
+		Coat
+		Gauntlets
+		Boots
+	Robes
+		Mage Robes
+		
